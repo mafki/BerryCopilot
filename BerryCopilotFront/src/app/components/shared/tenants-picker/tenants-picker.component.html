@@ -1,0 +1,29 @@
+<p class="text-uppercase text-sm">tenants</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="input-group">
+            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" name="searchTerm"   [(ngModel)]="searchTerm" (keyup)="search()"
+                placeholder="Type here..." />
+        </div>
+        <div class="form-group">
+
+            <ul multiple class="form-control" id="exampleFormControlSelect2">
+                @if (searchon=="false") { @for (item of keys; track $index) {
+                <li>
+                    <a (click)="pick(item)">
+                        <span>{{ item }}</span>
+                    </a>
+                </li>
+                } }@else { @for (item of keys1; track $index) {
+                <li>
+                    <a (click)="pick(item)">
+                        <span>{{ item }}</span>
+                    </a>
+                </li>
+                } }
+            </ul>
+
+        </div>
+    </div>
+</div>

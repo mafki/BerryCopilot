@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card cb">
+          @if (loading) {
+          <div class="card-header pb-0">
+            <div class="d-flex align-items-center">
+              <p class="mb-0">Create PKI</p>
+              <button (click)="next()" [class.hidden]="!tenanton" class="btn btn-primary btn-sm ms-auto">Create</button>
+            </div>
+          </div>
+          <div class="card-body">
+          
+            <app-tenants-picker (dataEvent)="tenanttrigger()"/>
+            @if (tenanton) {
+              <app-create-credentials-form [parentData2]="parentData2" />
+              <app-pki-component [parentData]="parentData" />
+            }
+          
+          </div>}
+          @else {
+            <div class="loading0">
+            <div class="loading" role="status">
+              <label>Login to vault to unlock</label>
+              <span class="mdi mdi-lock"></span>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+      <div class="col-md-4">
+        <app-vault (dataEvent)="vaulttrigger()" />
+      </div>
+    </div>
+  </div>
+</div>

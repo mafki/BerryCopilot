@@ -1,0 +1,110 @@
+@if (vault==false){
+<div class="card card-profile" id="card-vault">
+  <div id="card">
+    <label>Login to vault account</label>
+    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modal-default">Login</button>
+
+  </div>
+  <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-info text-gradient">
+                Log in 
+              </h3>
+              
+              <p class="mb-2">Enter your email and password to sign in</p>
+            </div>
+           
+            <div class="card-body">
+
+              @if (trylogin=== true) {
+                <div class="green-box">
+                    login successful
+                </div>
+            }
+              @if (trylogin === false) {
+                <div class="red-box">
+                    wrong username or password
+                </div>
+            }
+              <form id="myForm" role="form text-left">
+                <label class="lab">Email</label>
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    aria-label="Email"
+                    name="Email"
+                    [(ngModel)]="Email"
+                    aria-describedby="email-addon"
+                  />
+                </div>
+                <label class="lab">Password</label>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    aria-label="Password"
+                    name="Password"
+                    [(ngModel)]="Password"
+                    aria-describedby="password-addon"
+                  />
+                </div>
+                <div class="text-center">
+                  @if(islogin){
+                    <button type="button" (click)="fetch('/')" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0" data-bs-dismiss="modal">Close</button>
+                  }@else {
+                  <button
+                    type="button"
+                    (click)="login()"
+                    class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0"
+                  >
+                  @if (loading) {
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  }@else{
+                    Sign in
+                  }
+                  </button>
+                }
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}@else{
+<div class="card">
+  @if(loading==true){
+  <div id="card">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  }@else{
+  <ul class="list-group">
+    <li class="list-group-item active az" aria-current="true">Vault secrets</li>
+    <li class="list-group-item azz" aria-current="true"><a (click)="back()"><span class="mdi mdi-keyboard-backspace"></span>Back</a></li>
+    @for (item of keys; track $index) {
+      <li class="list-group-item"  aria-current="true">
+        <a (click)="fetch(item)">
+          <span>{{ item }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+  
+  }
+</div>
+
+}

@@ -1,0 +1,16 @@
+#exampleFormControlSelect2{
+    list-style-type: none;
+    overflow-y: scroll;
+    max-height: 150px;
+}
+li{
+    display: flex;
+}
+a{
+    cursor: pointer;
+    width: 100%;
+}
+a:hover{
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+}

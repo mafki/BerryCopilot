@@ -1,0 +1,13 @@
+.icons-dash{
+    color: #fff;
+    font-size: 1.9rem;
+}
+.aza:hover{
+    background-color: red;
+    color: #fff;
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}
+.aaa{
+    min-height: 214px;
+}

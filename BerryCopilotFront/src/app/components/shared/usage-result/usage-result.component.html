@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="card" id="prog">
+          @if (status==true) {
+            <div class="Loading">
+              <img src="assets/images/ok.gif" alt="loading">
+            </div>
+          }@else if (status==false) {
+            <div class="Loading">
+              <img src="assets/images/nok.gif" alt="loading">
+            </div>
+          }@else {
+            <div class="Loading">
+              <img src="assets/images/robot.gif" alt="loading">
+            </div>
+          }
+          <div class="progress-wrapper">
+            <div class="progress-info">
+              <div class="progress-label">
+                <span>Captain Berrycopilot is putting forth maximum effort as we speak. Your patience is appreciated.</span>
+              </div>
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold">{{progress}}</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                aria-valuemax="100" [style.width]="progress" ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

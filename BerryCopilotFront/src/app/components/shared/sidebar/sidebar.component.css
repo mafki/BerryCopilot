@@ -1,0 +1,18 @@
+.logo-img{
+    width: 30%;
+    object-fit: contain;
+    margin-bottom: 5%;
+}
+.logo-txt{
+    font-size: 1.2rem;
+    font-weight: 1000;
+    margin-top: 5%;
+    
+}
+.sidenav-icons{
+    width: 10%;
+    font-size: large;
+}
+a{
+    cursor: pointer;
+}

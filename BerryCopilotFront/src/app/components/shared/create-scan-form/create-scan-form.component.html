@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card cb">
+                    @if (loading) {
+                    <div class="card-header pb-0">
+                        <div class="d-flex align-items-center">
+                            <p class="mb-0">Create a scanner</p>
+                            <button (click)="next()" class="btn btn-primary btn-sm ms-auto">Create</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-uppercase text-sm">Usage</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Scan name</label>
+                                    <input class="form-control" type="text" placeholder="enter your scan name"
+                                        name="name" [(ngModel)]="name" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Scan type</label>
+                                    <select class="form-control" name="type" [(ngModel)]="type" required>
+                                        <option value="Network scan">Network scan</option>
+                                        <option value="SCAN_FS">File system scan</option>
+                                        <option value="SCAN_APP">Application scan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @if (type === 'SCAN_FS') {
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Servers to scan</label>
+                                    <input class="form-control" type="text" placeholder="enter your servers name"
+                                        name="servers" [(ngModel)]="servers" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">File systems
+                                        paths</label>
+                                    <input class="form-control" type="text" placeholder="enter your File systems paths"
+                                        name="fsp" [(ngModel)]="fsp" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">command
+                                        post_deploy</label>
+                                    <input class="form-control" type="text" placeholder="enter your command post_deploy"
+                                        name="cpd" [(ngModel)]="cpd" />
+                                </div>
+                            </div>
+                            }@else if (type === 'SCAN_APP') {
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Application servers to
+                                        scan</label>
+                                    <select class="form-control" name="servertype" [(ngModel)]="servertype" required>
+                                        <option value="APACHE">APACHE</option>
+                                        <option value="F5 BIG-IP">F5 BIG-IP</option>
+                                        <option value="IIS">IIS</option>
+                                        <option value="NGINX">NGINX</option>
+                                        <option value="WEBLOGIC">WEBLOGIC</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Configuration path</label>
+                                    <input class="form-control" type="text" placeholder="enter your Configuration path"
+                                        name="configpath" [(ngModel)]="configpath" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Restart command for apache</label>
+                                    <input class="form-control" type="text" placeholder="enter your Restart command for apache"
+                                        name="restartcommand" [(ngModel)]="restartcommand" />
+                                </div>
+                            </div>
+                            }</div></div>
+                    }   
+                    @else {<div class="loading0">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>}
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+</div>

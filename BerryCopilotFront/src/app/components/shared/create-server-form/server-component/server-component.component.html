@@ -1,0 +1,39 @@
+<hr class="horizontal dark" />
+<p class="text-uppercase text-sm">Server</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Name</label>
+            <input class="form-control" type="text" placeholder="enter your pki name" name="name" [(ngModel)]="name" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">FQDN</label>
+            <input class="form-control" type="text" placeholder="enter your FQDN name" name="fq" [(ngModel)]="fq" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Protocol</label>
+            <select class="form-control" id="Protocol" name="Protocol" [(ngModel)]="Protocol" required>
+                <option value="ssh">SSH</option>
+                <option value="winrm">WinRM</option>
+                <option value="tls">TLS</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Worker deployment path</label>
+            <input class="form-control" type="text" placeholder="enter your path " name="path" [(ngModel)]="path" />
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Port</label>
+            <input class="form-control" type="text" placeholder="enter your port" name="port" [(ngModel)]="port" />
+        </div>
+    </div>
+</div>

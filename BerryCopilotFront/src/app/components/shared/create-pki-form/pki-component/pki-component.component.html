@@ -1,0 +1,48 @@
+<hr class="horizontal dark" />
+<p class="text-uppercase text-sm">PKI</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Name</label>
+            <input class="form-control" type="text" placeholder="enter your pki name" name="name" [(ngModel)]="name" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Type</label>
+            <select class="form-control" id="type" name="type" [(ngModel)]="type"  required>
+                @for (item of types; track item.id) {
+                    <option  [value]=item.value>{{item.value}}</option>
+                  }
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">Port</label>
+            <input class="form-control" type="text" placeholder="enter your port" name="port" [(ngModel)]="port" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="example-text-input" class="form-control-label">FQDN</label>
+            <input class="form-control" type="text" placeholder="enter your FQDN" name="ip" [(ngModel)]="ip"/>
+        </div>
+    </div>
+
+</div>
+<hr class="horizontal dark" />
+<p class="text-uppercase text-sm">Synchronization</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1" checked="">
+                <label class="custom-control-label" for="customCheck1">PKI Synchronization</label>
+            </div>
+        </div>
+    </div>
+</div>
