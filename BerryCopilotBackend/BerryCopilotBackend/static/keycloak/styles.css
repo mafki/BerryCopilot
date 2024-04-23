@@ -1,0 +1,84 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background for the body */
+body {
+    background-image: url("./keycloak-bg.png");
+    background-size: cover; /* Cover the entire viewport */
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+/* Center the form vertically and horizontally */
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Style the form container */
+.form {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 30px;
+    max-width: 400px; /* Limit width for better readability */
+}
+
+/* Style the header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #ededed; /* Dark text color */
+}
+
+/* Style the form elements */
+.form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #363636; /* Dark text color */
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0088ce; /* Green button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.form button:hover {
+    background-color: #00659c;; /* Darker green on hover */
+}
+.login{
+    text-align: center;
+    margin-bottom: 10px;
+    font: 16px sans-serif; /* Light border */
+
+}
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .form {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}

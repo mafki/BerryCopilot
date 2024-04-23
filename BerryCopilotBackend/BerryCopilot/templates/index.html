@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'keycloak/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django App</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var button = document.getElementById("myButton");
+            button.addEventListener("click", function () {
+                var roleValue = document.getElementById("role").value;
+                var emailValue = document.getElementById("emailInput").value;
+                var passwordValue = document.getElementById("passwordInput").value;
+                sendDataToDjango(roleValue, emailValue, passwordValue);
+            });
+        });
+
+        function sendDataToDjango(roleValue, emailValue, passwordValue) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "{% url 'handle_input' %}", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById("response").innerHTML = xhr.responseText;
+                    } else {
+                        console.error("Request failed: " + xhr.status);
+                    }
+                }
+            };
+
+            // If roleValue is empty, set it to a default value
+            if (roleValue.trim() === "") {
+                roleValue = "dev"; // Set to default value
+            }
+
+            // Convert input values to strings before sending the request
+            roleValue = String(roleValue);
+            emailValue = String(emailValue);
+            passwordValue = String(passwordValue);
+
+            var data = "roleValue=" + roleValue + "&emailValue=" + emailValue + "&passwordValue=" + passwordValue;
+            xhr.send(data);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- my_template.html -->
+    <div class="body">
+        <div class="header">
+            <h1>VAULT</h1>
+        </div>
+        <div class="form">
+        <div class="login">Log In</div>
+        <form id="myForm" method="post">
+            <label for="role">Role</label>
+            <input type="text" id="role" name="role" value="dev">
+            <label for="emailInput">Username or email</label>
+            <input type="email" id="emailInput" name="emailInput" placeholder="Enter your email">
+            <label for="passwordInput">Password</label>
+            <input type="password" id="passwordInput" name="passwordInput" placeholder="Enter your password">
+            <button type="button" id="myButton">Log In</button>
+        </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
